@@ -1,0 +1,38 @@
+name: macos
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-on-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: git pull
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Debug Environment
+        run: |
+          echo "PATH: $PATH"
+          echo "SHELL: $SHELL"
+        shell: bash
+
+      - name: Run which cargo
+        run: which cargo
+        shell: bash
+
+      - name: Run cargo
+        run: cargo
+        shell: bash
+
+      - name: Run which rustc
+        run: which rustc
+        shell: bash
+
+      - name: Run rustc
+        run: rustc -vV
+        shell: bash
