@@ -1,0 +1,15 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-macos:
+    uses: ./.github/workflows/setup-macos.yaml
+    with:
+      command: npm run build-macos-project --workspace @project-gauntlet/build

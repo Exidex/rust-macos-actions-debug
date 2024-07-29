@@ -1,9 +1,13 @@
 name: macos
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      command:
+        required: true
+        type: string
+      github-release-id:
+        type: string
 
 jobs:
   run-on-macos:
