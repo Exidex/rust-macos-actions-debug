@@ -10,6 +10,6 @@ on:
 
 jobs:
   build-macos:
-    uses: ./.github/workflows/setup-macos.yaml
+    uses: ./.github/workflows/macos.yaml
     with:
       command: npm run build-macos-project --workspace @project-gauntlet/build
